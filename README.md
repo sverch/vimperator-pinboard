@@ -4,11 +4,11 @@ Plugin to add commands to vimperator that will save bookmarks to pinboard.in.
 
 # Usage
 
-    :pin[board] [-s] [-r] [-d <description>] [-n <notes>] [space separated tags]...
+    :pin[board] [-s] [-r] [-t <title>] [-d <description>] [space separated tags]...
         -s Bookmark as public.  Default is private.
         -r Bookmark as read.  Default is unread.
-        -d Set the description (title) of the bookmark.  Default is the current buffer's title.
-        -n Set the notes (description) of the bookmark.  Default is the currently selected text.
+        -t Set the title of the bookmark.  Default is the current buffer's title.
+        -d Set the description of the bookmark.  Default is the currently selected text.
 
 # Disclaimer
 

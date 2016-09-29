@@ -26,15 +26,15 @@
 
   commands.addUserCommand(['pin[board]'], 'Bookmark page at pinboard.in', function(args) {
     var url = buffer.URL;
-    var description = args['-d'] || buffer.title || url;
-    var note = args['-n'] || String(window.content.getSelection());
+    var title = args['-t'] || buffer.title || url;
+    var description = args['-d'] || String(window.content.getSelection());
     var shared = args['-s'] ? 'yes' : 'no';
     var toread = args['-r'] ? 'no' : 'yes';
 
     httpPost(buildURL('https://api.pinboard.in/v1/posts/add?',
                       [['url', url],
-                       ['description', description],
-                       ['extended', note],
+                       ['description', title],
+                       ['extended', description],
                        ['tags', args.join(" ")],
                        ['shared', shared],
                        ['toread', toread]]), function(xhr) {
@@ -45,8 +45,8 @@
     });
   }, {
     argCount: '*',
-    options: [[['-d', 'description'], commands.OPTION_STRING, null, function() [[buffer.title]]],
-              [['-n', 'note'], commands.OPTION_STRING, null, null],
+    options: [[['-t', 'title'], commands.OPTION_STRING, null, function() [[buffer.title]]],
+              [['-d', 'description'], commands.OPTION_STRING, null, null],
               [['-s', 'shared'], commands.OPTION_NOARG, null, null],
               [['-r', 'markasread'], commands.OPTION_NOARG, null, null]],
     completer: function(context) {
