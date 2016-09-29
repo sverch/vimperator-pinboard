@@ -2,6 +2,10 @@
 
 Plugin to add commands to vimperator that will save bookmarks to pinboard.in.
 
+# Installation
+
+Copy the `pinboard.js` file into the `~/.vimperator/plugin` directory.
+
 # Usage
 
     :pin[board] [-s] [-r] [-t <title>] [-d <description>] [space separated tags]...
