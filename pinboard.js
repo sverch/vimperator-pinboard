@@ -1,6 +1,12 @@
 (function() {
 
   function buildURL(url, queries) {
+    // see https://blog.pinboard.in/2012/07/api_authentication_tokens/
+    var token = options.get('pinboardtoken').get();
+    if (token != null && token != '') {
+      queries.push(['auth_token', token]);
+    }
+
     var result = [url];
     for (var i = 0; i < queries.length; i++)
       if (queries[i][1])
@@ -22,6 +28,10 @@
     } catch (e) {
       liberator.log('Error opening ' + url + ': ' + e, 1);
     }
+  }
+
+  if (options.get('pinboardtoken') == null) {
+    options.add(['pinboardtoken'], 'Pinboard.in token (username:token)', 'string', '');
   }
 
   commands.addUserCommand(['pin[board]'], 'Bookmark page at pinboard.in', function(args) {
