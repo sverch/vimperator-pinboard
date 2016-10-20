@@ -4,6 +4,8 @@ Plugin to add commands to vimperator that will save bookmarks to pinboard.in.
 
 ## Usage
 
+    :set pinboardtoken="username:token"
+
     :pin[board] [-s] [-r] [-t <title>] [-d <description>] [space separated tags]...
         -s Bookmark as public.  Default is private.
         -r Bookmark as read.  Default is unread.
