@@ -16,6 +16,19 @@ Plugin to add commands to vimperator that will save bookmarks to pinboard.in.
 
 Copy the `pinboard.js` file into the `~/.vimperator/plugin` directory.
 
+It's also recommended that you add the following to the top of your `~/.vimperatorrc`:
+
+```
+loadplugins
+source! ~/.vimperatorrc.local
+```
+
+Plugins are normally loaded after `.vimperratorrc`, meaning that `pinboardtoken` is not settable in
+`.vimperatorrc` unless `loadplugins` comes before it.
+
+Sourcing `.vimperatorrc.local` is nice for storing credentials in something that you won't
+accidentally commit to a public repo.
+
 ## Disclaimer
 
 I did not write this, but as far as I know I'm the first person to create a dedicated repo for it.
